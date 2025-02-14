@@ -26,9 +26,39 @@ public class Manager {
 	private String city;
 	@Column(name = "m_role", nullable = false)
 	private String role;
+	@Column(name = "DOJ", nullable = false)
+	private String date_of_joining;
+	@Column(name = "Salary", nullable = false)
+	private Double salary;
+	@Column(name = "Status", nullable = false)
+	private String status;
 
 	public Integer getId() {
 		return id;
+	}
+
+	public String getDate_of_joining() {
+		return date_of_joining;
+	}
+
+	public void setDate_of_joining(String date_of_joining) {
+		this.date_of_joining = date_of_joining;
+	}
+
+	public Double getSalary() {
+		return salary;
+	}
+
+	public void setSalary(Double salary) {
+		this.salary = salary;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	public void setId(Integer id) {
