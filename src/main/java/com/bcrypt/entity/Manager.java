@@ -12,24 +12,33 @@ import jakarta.persistence.Table;
 public class Manager {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "m_id")
+	@Column(name = "m_id")    // @Column Annotation used to assign name to the column in the table in to the database.
 	private Integer id;
+	
 	@Column(name = "m_name", nullable = false)
 	private String name;
+	
 	@Column(name = "m_email", unique = true, nullable = false)
 	private String email;
+	
 	@Column(name = "m_username", unique = true, nullable = false)
 	private String username;
+	
 	@Column(name = "m_password", unique = true, nullable = false)
 	private String password;
+	
 	@Column(name = "m_city", nullable = false)
 	private String city;
+	
 	@Column(name = "m_role", nullable = false)
 	private String role;
+	
 	@Column(name = "DOJ", nullable = false)
 	private String date_of_joining;
+	
 	@Column(name = "Salary", nullable = false)
 	private Double salary;
+	
 	@Column(name = "Status", nullable = false)
 	private String status;
 
