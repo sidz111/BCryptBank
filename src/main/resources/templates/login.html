@@ -3,7 +3,8 @@
 	th:replace="header::Layout(~{::section})">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BCrypt Bank</title>
     
     <!-- BCrypt Bank icon -->
@@ -15,33 +16,13 @@
 	<!-- Bootstrap Icons CDN -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 
-	<style>
-		/* Background image */
-		body{
-			background-image: url(img/digital-rupee-technology-background-design_1017-36659.jpg);
-			background-size: cover;
-			background-position: center;
-
-		}
-		/* Glassmorphism css effect */
-		.glass-card {
-			background: rgba(255, 255, 255, 0.2);
-			border-radius: 15px;
-			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-			backdrop-filter: blur(10px);
-			-webkit-backdrop-filter: blur(10px);
-			border: 1px solid rgba(255, 255, 255, 0.3);
-		}
-		
-	</style>
-
 </head>
 <body>
-    <section class="mt-5 pb-3">
+    <section class="mt-5 pb-3 mysection">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 mx-auto mt-5">
-					<div class="card shadow p-3 mb-5 glass-card"> <!-- Applied class here -->
+					<div class="card shadow p-3 mb-5 glass-card">
 						<div class="card-body">
 							<div class="d-flex justify-content-center">
 								<img src="img/profile (1).png" width="100px">
