@@ -32,7 +32,10 @@ public class Manager {
 	private Double salary;
 	@Column(name = "Status", nullable = false)
 	private String status;
-
+	
+//	@Column(name = "Risk", nullable = false)
+//	private String risk;
+//	
 	public Integer getId() {
 		return id;
 	}
