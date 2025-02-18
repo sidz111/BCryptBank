@@ -1,56 +1,51 @@
 package com.bcrypt.entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="user_details")
-public class User 
-{
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="user_id")
-	private Integer id;
-	
-	@Column(name="user_name", nullable=false)
-	private String name;
-	
-	@Column(name="user_username", unique=true, nullable=false)
-	private String username;
-	
-	@Column(name="user_password", unique=true, nullable=false)
-	private String password;
-	
-	@Column(name="user_email", unique=true, nullable=false)
-	private String email;
-	
-	@Column(name="user_city", nullable=false)
-	private String city;
-	
-	private String role;
-	
-	@Column(name="user_accountno", unique=true)
-	private Long accountno;
-	
-	public Long getAccountno() {
-		return accountno;
-	}
+@Table(name = "user_details")
+public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
+    private Integer id;
 
-	public void setAccountno(Long accountno) {
-		this.accountno = accountno;
-	}
+    @Column(name = "user_name", nullable = false)
+    private String name;
 
-	public String getRole() {
-		return role;
-	}
+    @Column(name = "user_username", unique = true, nullable = false)
+    private String username;
 
-	public void setRole(String role) {
-		this.role = role;
-	}
+    @Column(name = "user_password", nullable = false)
+    private String password;
+
+    @Column(name = "user_email", unique = true, nullable = false)
+    private String email;
+
+    @Column(name = "user_city", nullable = false)
+    private String city;
+
+    @Column(name = "user_role", nullable = false)
+    private String role;
+
+    @Column(name = "user_accountno", unique = true)
+    private Long accountNo;
+
+    @ManyToOne
+    @JoinColumn(name = "manager_id", nullable = false)
+    private Manager manager;
+
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private Account account;
 
 	public Integer getId() {
 		return id;
@@ -99,5 +94,36 @@ public class User
 	public void setCity(String city) {
 		this.city = city;
 	}
-	
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public Long getAccountNo() {
+		return accountNo;
+	}
+
+	public void setAccountNo(Long accountNo) {
+		this.accountNo = accountNo;
+	}
+
+	public Manager getManager() {
+		return manager;
+	}
+
+	public void setManager(Manager manager) {
+		this.manager = manager;
+	}
+
+	public Account getAccount() {
+		return account;
+	}
+
+	public void setAccount(Account account) {
+		this.account = account;
+	}
 }
