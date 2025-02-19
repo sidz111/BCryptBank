@@ -1,57 +1,47 @@
 package com.bcrypt.entity;
 
-
-import java.math.BigDecimal;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "account")
 public class Account {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long accountId;
 
-    @Column(unique = true, nullable = false)
-    private Long accountNumber;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    @Column(nullable = false)
-    private String accountType;
+	private String accountNumber;
+	private String accountType;
+	private Double balance;
 
-    @Column(nullable = false)
-    private BigDecimal balance;
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User user;
 
-    @OneToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+	@OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
+	private List<Transaction> transactions;
 
-    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Transaction> transactions;
-
-	public Long getAccountId() {
-		return accountId;
+	public Long getId() {
+		return id;
 	}
 
-	public void setAccountId(Long accountId) {
-		this.accountId = accountId;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
-	public Long getAccountNumber() {
+	public String getAccountNumber() {
 		return accountNumber;
 	}
 
-	public void setAccountNumber(Long accountNumber) {
+	public void setAccountNumber(String accountNumber) {
 		this.accountNumber = accountNumber;
 	}
 
@@ -63,11 +53,11 @@ public class Account {
 		this.accountType = accountType;
 	}
 
-	public BigDecimal getBalance() {
+	public Double getBalance() {
 		return balance;
 	}
 
-	public void setBalance(BigDecimal balance) {
+	public void setBalance(Double balance) {
 		this.balance = balance;
 	}
 
@@ -86,5 +76,4 @@ public class Account {
 	public void setTransactions(List<Transaction> transactions) {
 		this.transactions = transactions;
 	}
-
 }

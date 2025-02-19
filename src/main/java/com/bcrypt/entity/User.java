@@ -1,57 +1,55 @@
 package com.bcrypt.entity;
 
+import java.util.List;
+
 import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.OneToMany;
 
 @Entity
-@Table(name = "user_details")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
-    private Integer id;
+    private Long id;
 
-    @Column(name = "user_name", nullable = false)
     private String name;
 
-    @Column(name = "user_username", unique = true, nullable = false)
     private String username;
 
-    @Column(name = "user_password", nullable = false)
     private String password;
 
-    @Column(name = "user_email", unique = true, nullable = false)
     private String email;
 
-    @Column(name = "user_city", nullable = false)
-    private String city;
+    private String address;
+    
+    private String branch;
+    
+    private Long adhar;
 
-    @Column(name = "user_role", nullable = false)
     private String role;
 
-    @Column(name = "user_accountno", unique = true)
     private Long accountNo;
+    
+    private String profilePhoto;
+    
+    private String signature;
+    
+    private String dateOfBirth;
 
-    @ManyToOne
-    @JoinColumn(name = "manager_id", nullable = false)
-    private Manager manager;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Account> accounts;
+    
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Loan> loans;
 
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-    private Account account;
-
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -87,12 +85,28 @@ public class User {
 		this.email = email;
 	}
 
-	public String getCity() {
-		return city;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setCity(String city) {
-		this.city = city;
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getBranch() {
+		return branch;
+	}
+
+	public void setBranch(String branch) {
+		this.branch = branch;
+	}
+
+	public Long getAdhar() {
+		return adhar;
+	}
+
+	public void setAdhar(Long adhar) {
+		this.adhar = adhar;
 	}
 
 	public String getRole() {
@@ -111,19 +125,44 @@ public class User {
 		this.accountNo = accountNo;
 	}
 
-	public Manager getManager() {
-		return manager;
+	public String getProfilePhoto() {
+		return profilePhoto;
 	}
 
-	public void setManager(Manager manager) {
-		this.manager = manager;
+	public void setProfilePhoto(String profilePhoto) {
+		this.profilePhoto = profilePhoto;
 	}
 
-	public Account getAccount() {
-		return account;
+	public String getSignature() {
+		return signature;
 	}
 
-	public void setAccount(Account account) {
-		this.account = account;
+	public void setSignature(String signature) {
+		this.signature = signature;
 	}
+
+	public String getDateOfBirth() {
+		return dateOfBirth;
+	}
+
+	public void setDateOfBirth(String dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+
+	public List<Account> getAccounts() {
+		return accounts;
+	}
+
+	public void setAccounts(List<Account> accounts) {
+		this.accounts = accounts;
+	}
+
+	public List<Loan> getLoans() {
+		return loans;
+	}
+
+	public void setLoans(List<Loan> loans) {
+		this.loans = loans;
+	}
+
 }
