@@ -1,55 +1,44 @@
 package com.bcrypt.entity;
-import java.math.BigDecimal;
-import java.time.LocalDate;
-
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "loan")
 public class Loan {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long loanId;
+    private Long id;
 
-    @Column(nullable = false)
-    private BigDecimal loanAmount;
+    private Double loanAmount;
 
-    @Column(nullable = false)
     private Double interestRate;
 
-    @Column(nullable = false)
-    private LocalDate startDate;
+    private String startDate;
 
-    @Column(nullable = false)
-    private LocalDate endDate;
+    private String endDate;
 
-    @Column(nullable = false)
     private String loanStatus;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "user_id")
     private User user;
 
-	public Long getLoanId() {
-		return loanId;
+	public Long getId() {
+		return id;
 	}
 
-	public void setLoanId(Long loanId) {
-		this.loanId = loanId;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
-	public BigDecimal getLoanAmount() {
+	public Double getLoanAmount() {
 		return loanAmount;
 	}
 
-	public void setLoanAmount(BigDecimal loanAmount) {
+	public void setLoanAmount(Double loanAmount) {
 		this.loanAmount = loanAmount;
 	}
 
@@ -61,19 +50,19 @@ public class Loan {
 		this.interestRate = interestRate;
 	}
 
-	public LocalDate getStartDate() {
+	public String getStartDate() {
 		return startDate;
 	}
 
-	public void setStartDate(LocalDate startDate) {
+	public void setStartDate(String startDate) {
 		this.startDate = startDate;
 	}
 
-	public LocalDate getEndDate() {
+	public String getEndDate() {
 		return endDate;
 	}
 
-	public void setEndDate(LocalDate endDate) {
+	public void setEndDate(String endDate) {
 		this.endDate = endDate;
 	}
 
@@ -92,5 +81,4 @@ public class Loan {
 	public void setUser(User user) {
 		this.user = user;
 	}
-
 }
