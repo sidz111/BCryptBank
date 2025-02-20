@@ -3,12 +3,16 @@ package com.bcrypt.repository; // Repository interface is used to create custom 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface Transaction extends JpaRepository<Transaction, Long> {
+import com.bcrypt.entity.Transaction;
+
+@Repository
+public interface TransactionRepository extends JpaRepository<Transaction, Long> {
 
 	List<Transaction> findByTransactionType(String transactionType); // custom method
 
 	List<Transaction> findByAmount(Double amount);// to find by amount
 
-	List<Transaction> findByTimeStamp(String timestamp);// to find transactions by time.
+	List<Transaction> findByTimestamp(String timestamp);// to find transactions by time.
 }
