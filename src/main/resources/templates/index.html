@@ -1,10 +1,241 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="header::Layout(~{::section})">
 <head>
-	<meta charset="UTF-8" />
-	<title>BCrypt Bank</title>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BCrypt Bank</title>
 </head>
 <body>
-	<h1>Hello</h1>
+	<section>
+		<!-- Slider of images -->
+		<div id="carouselExampleControls" class="carousel slide mysection"
+			data-bs-ride="carousel">
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img src="img/crousel/banking2.jpg" class="d-block w-100"
+						alt="image1" height="600px">
+					<div class="carousel-caption d-none d-md-block">
+						<h5 class="fs-2">Welcome To BCrypt Bank</h5>
+						<p class="fs-4">Some representative placeholder content for
+							the first slide.</p>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<img src="img/crousel/banking1.jpg" class="d-block w-100"
+						alt="image2" height="600px">
+					<div class="carousel-caption d-none d-md-block">
+						<h5 class="text-black fs-2">Welcome To BCrypt Bank</h5>
+						<p class="text-black fs-4">Some representative placeholder
+							content for the second slide.</p>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<img src="img/crousel/banking3.jpg" class="d-block w-100"
+						alt="image3" height="600px">
+					<div class="carousel-caption d-none d-md-block">
+						<h5 class="fs-2">Welcome To BCrypt Bank</h5>
+						<p class="fs-4">Some representative placeholder content for
+							the third slide.</p>
+					</div>
+				</div>
+			</div>
+			<button class="carousel-control-prev" type="button"
+				data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Previous</span>
+			</button>
+			<button class="carousel-control-next" type="button"
+				data-bs-target="#carouselExampleControls" data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Next</span>
+			</button>
+		</div>
+		<!-- End of slider -->
+
+		<!-- Our-Service-Section -->
+		<div class="container-fluid contanctbackground pt-4" id="ourservices">
+			<div class="container pb-5 ">
+				<h1 class="text-center text-warning pb-3">Our Services</h1>
+				<div class="row">
+					<div class="col-md-3">
+						<div class="card p-4 shadow p-3 mb-5 glass-card">
+							<div class="d-flex justify-content-start">
+								<img src="img/services/money-notes-receiving-dollar-color-icon.png" width="80px">
+							</div>
+							<h5>Deposite Services</h5>
+							<div class="card-body">
+								<p>Deposit services allow individuals and businesses to
+									securely store money in banks while earning interest in some
+									cases. Savings accounts help individuals grow their money with
+									interest while allowing limited withdrawals.</p>
+							</div>
+							<button class="btn btn-danger">Read more</button>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="card p-4 shadow p-3 mb-5 glass-card">
+							<div class="d-flex justify-content-start">
+								<img src="img/services/loan-application-approved-icon.png" width="80px">
+							</div>
+								<h5>Loan and Credit</h5>
+							<div class="card-body">
+								<p>Loan and credit services help individuals and businesses
+									access funds for various financial needs. Personal loans
+									provide quick cash without collateral, while home loans help in
+									purchasing property with long repayment terms.</p>
+							</div>
+							<button class="btn btn-danger">Read more</button>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="card p-4 shadow p-3 mb-5 glass-card">
+							<div class="d-flex justify-content-start">
+								<img src="img/services/credit-card-color-icon.png" width="80px">
+							</div>
+								<h5>Digital Banking</h5>
+							<div class="card-body">
+								<p>Digital banking allows customers to manage their finances
+									online without visiting a physical branch. It includes internet
+									banking, mobile banking apps, and UPI (Unified Payments
+									Interface) for instant transactions.</p>
+							</div>
+							<button class="btn btn-danger">Read more</button>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="card p-4 shadow p-3 mb-5 glass-card">
+							<div class="d-flex justify-content-start">
+								<img src="img/services/money-bag-dollar-color-icon.png" width="80px">
+							</div>
+								<h5>Other Services</h5>
+							<div class="card-body">
+								<p>Other banking services go beyond deposits and loans,
+									offering financial solutions for customers. Wealth management
+									helps in investments, mutual funds, and retirement planning.
+									Insurance services provide life, health.</p>
+							</div>
+							<button class="btn btn-danger">Read more</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End of Our-Service-Section -->
+
+		<!-- AboutUs Section -->
+		<div class="container-fluid pt-5 pb-5 aboutbackground" id="aboutus">
+			<div class="row">
+				<div class="col-md-12 mx-auto">
+					<div class="card mx-auto p-5 shadow p-3 mb-5 glass-card"
+						style="max-width: 1000px">
+						<h1 class="text-center fs-2 text-warning pb-3">About Us</h1>
+						<p id="aboutText" class="text-white">
+							A banking application is a comprehensive financial software
+							system designed to facilitate and manage various banking
+							transactions for individuals and businesses. These applications
+							provide a secure and convenient platform for users to perform
+							essential banking operations such as deposits, withdrawals, fund
+							transfers, balance inquiries, bill payments, and loan management.
+							Modern banking applications integrate advanced security
+							mechanisms such as multi-factor authentication, end-to-end
+							encryption, and fraud detection systems to ensure safe
+							transactions and prevent unauthorized access. <span id="moreText"
+								class="d-none"> The seamless user experience and
+								intuitive interface of banking applications make them accessible
+								to a wide range of users, from tech-savvy customers to those
+								with minimal digital experience. Additionally, banking
+								applications empower financial institutions with administrative
+								tools to monitor transactions, generate reports, and manage
+								customer accounts efficiently. With the rapid advancements in
+								financial technology, modern banking applications leverage
+								artificial intelligence, blockchain, and cloud computing to
+								enhance operational efficiency, provide predictive analytics,
+								and ensure regulatory compliance. The backend of a banking
+								application is typically built using robust and scalable
+								technologies such as Java and Spring Boot, while the frontend
+								employs responsive frameworks like React.js, Angular, or Vue.js.
+								Secure API integrations enable seamless communication between
+								different banking services, third-party payment gateways, and
+								financial institutions. The database design follows a structured
+								approach with well-defined tables to manage user details,
+								account information, and transaction records effectively.
+								Banking applications continue to evolve with emerging trends
+								such as open banking, digital wallets, and biometric
+								authentication, making them indispensable tools in the modern
+								financial ecosystem. As financial transactions increasingly
+								shift towards digital platforms, banking applications play a
+								pivotal role in ensuring reliability, security, and user
+								convenience while driving innovation in the financial sector. </span>
+						</p>
+						<button
+							class="btn custom-navbar text-warning col-md-3 mx-auto mt-3"
+							id="readMoreBtn">Read More</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End of AboutUs -->
+
+		<!-- ContactUs Section -->
+		<div class="container-fluid contanctbackground pt-5" id="contactus">
+			<div class="row">
+				<div class="col-md-8 mx-auto">
+					<div class="card p-4 shadow p-3 mb-5 glass-card"
+						style="max-width: 1000px">
+						<h1 class="text-warning text-center pb-4">Contact Us</h1>
+						<form action="#" method="POST">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="mb-3">
+										<input type="text" placeholder="Full Name"
+											class="form-control form-control-lg" id="exampleInputEmail1"
+											aria-describedby="emailHelp">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="mb-3">
+										<input type="email" placeholder="Email address"
+											class="form-control form-control-lg"
+											id="exampleInputPassword1">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="mb-3">
+										<input type="number" placeholder="Mobile Number"
+											class="form-control form-control-lg" id="exampleInputName1">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="mb-3">
+										<input type="text" placeholder="Email Subject"
+											class="form-control form-control-lg" id="exampleInputName2">
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="mb-3">
+										<textarea class="form-control form-control-lg" cols=10 rows=5
+											placeholder="Leave a comment here"></textarea>
+									</div>
+								</div>
+							</div>
+							<button type="submit"
+								class="btn custom-navbar text-warning col-md-12">
+								<i class="bi bi-send-fill"></i> Submit
+							</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End of ContactUs -->
+	</section>
+
+	<script src="js/script.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+		crossorigin="anonymous"></script>
 </body>
 </html>

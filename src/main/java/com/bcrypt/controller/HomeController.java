@@ -8,7 +8,16 @@ public class HomeController {
 	
 	@GetMapping("/")
 	public String homePage() {
-		return "index";
+		return "index.html";
 	}
-
+	
+	@GetMapping("/login")
+	public String loginPage() {
+		return "login.html";
+	}
+	
+	@GetMapping("/register")
+	public String registerPage() {
+		return "register";
+	}
 }
