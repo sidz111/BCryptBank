@@ -8,5 +8,6 @@ public class BCryptBankApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(BCryptBankApplication.class, args);
+		System.out.println("Welcome To BCrypt Banking..!!");
 	}
 }
