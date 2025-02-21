@@ -1,5 +1,6 @@
 package com.bcrypt.repository;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -32,5 +33,5 @@ public interface UserRepository extends JpaRepository<User, Long>{
 	Optional<User> findByAccountNo(Long accountno);
 	
 	//It is used to find user by branch name.
-	Optional<User> findByBranch(String branch);
+	List<User> findByBranch(String branch);
 }

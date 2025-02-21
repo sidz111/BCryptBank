@@ -25,6 +25,7 @@ public interface AccountRepository extends JpaRepository<Account, Long>{
 	boolean existsByAccountNumber(String accountNumber);
 	
 	//update the balance by account number.
+	//JPQL --> Java Persistence Query Language
 	@Transactional
 	@Modifying
 	@Query("UPDATE Account a SET a.balance = :balance WHERE a.accountNumber = :accountNumber")
