@@ -20,7 +20,9 @@
 		  scroll-behavior: smooth;
 		}	
 		.custom-navbar {
-		    background-color: darkblue !important;
+		    background-color: #CBDCEB !important;	/* #CBDCEB */
+		    /* backdrop-filter: blur(10px);
+		    -webkit-backdrop-filter: blur(10px); */
 		}
 		
 		/* Background image */
@@ -41,7 +43,7 @@
 		}
 
 		.aboutbackground {
-			background-color: #024950;
+			background-color: #F5F5F5;
 		}
 		
 		/* Drop down menu open */
@@ -94,73 +96,160 @@
 		    color: blue;
 		    font-weight: bold;
 		}
-				
-		/* Contact CSS */
-		.contanctbackground{
-			background-color: #3D8D7A;
+		.our-service{
+			background-color: #EFF3EA;
 		}
+		.own-solid{
+			border: 1px solid black;
+			padding: 8px;
+			background-color: none;
+			border-radius:50%;
+			padding-left: 10px;
+		}
+		.card{
+			border-radius: 0px;
+			
+		}
+		.about{
+			background-color: #FCFCFC;
+		}
+		.own-control{
+			border-radius: 20px;
+			width: 300px
+		}
+		.fa{
+			color:black;
+		}
+		.search-btn{
+			border-radius:50%;
+		}
+		.primary-color{
+			color: #000957;
+		}
+		.secondary-color{
+			color: #09122C;
+		}
+		.third-color{
+			color: #000000;
+		}
+		.divider {
+		    width: 100%;
+		    height: 4px;
+		    background: linear-gradient(to right, #007bff, #00d4ff);
+		    border-radius: 2px;
+		    margin: 10px 0;
+		}
+		.divider-about{
+			width: 50%;
+		    height: 4px;
+		    background: linear-gradient(to right, #007bff, #00d4ff);
+		    border-radius: 2px;
+		    margin: 0px auto;
+		}
+		.divider-service{
+			width: 29%;
+		    height: 4px;
+		    background: linear-gradient(to right, #007bff, #00d4ff);
+		    border-radius: 2px;
+		    margin: 10px 0;
+		}
+		.own-btn{
+			border-radius: 30px;
+			background-color: none;
+			border: 1px solid #09122C;
+		}
+		.own-btn-hover:hover{
+			background-color: #001A6E;
+			color: #fff;
+		}
+		
+		/* Footer CSS */
+		footer {
+		    background-color: #06142E; /* Dark blue */
+		    color: white;
+		}
+		footer a {
+		    color: white;
+		    text-decoration: none;
+		}
+		footer a:hover {
+		    text-decoration: underline;
+		}
+		footer .btn-primary {
+		    background-color: #007bff;
+		    border: none;
+		}
+		footer .btn-primary:hover {
+		    background-color: #0056b3;
+		}
+		
 	</style>
 </head>
 <body>
 <!-- Navigation Bar -->	
-<nav class="navbar navbar-expand-lg bg-primary custom-navbar fixed-top navbar-dark">
+<nav class="navbar navbar-expand-lg bg-primary custom-navbar fixed-top">
   <div class="container">
-    <a class="navbar-brand" href="/"><i class="fa-solid fa-building-columns"></i> BCrypt Bank</a>
+    <a class="navbar-brand me-5 secondary-color fw-bold fs-3" href="/" title="Welcome to BCrypt Banking Application">
+      <i class="fa-solid own-solid fa-building-columns"></i> BCrypt
+    </a>
+    
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link active" href="/"><i class="fa-solid fa-house-chimney"></i> Home</a></li>
-        <li class="nav-item"><a class="nav-link active" href="#aboutus"><i class="fa-solid fa-address-card"></i> About Us</a></li>
+
+    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+      <ul class="navbar-nav mx-auto text-center">
+        <li class="nav-item"><a class="nav-link active primary-color" href="/"><i class="fa-solid fa-house-chimney"></i> Home</a></li>
+        <li class="nav-item"><a class="nav-link primary-color " href="#aboutus"><i class="fa-solid fa-address-card"></i> About Us</a></li>
         
         <li class="nav-item dropdown">
-		    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-		        <i class="fa-solid fa-layer-group"></i> Services
-		    </a>
-		    <ul class="dropdown-menu">
-		        <li>
-		            <a class="dropdown-item d-flex justify-content-between align-items-center" href="#ourservices" onclick="toggleSubmenu(event, 'depositSubmenu')">
-		                Deposit Service <i class="fa-solid fa-plus"></i>
-		            </a>
-		            <ol class="submenu list-unstyled ms-3" id="depositSubmenu">
-		                <li><a class="dropdown-item" href="#ourservices">Savings Accounts</a></li>
-		                <li><a class="dropdown-item" href="#ourservices">Current Accounts</a></li>
-		                <li><a class="dropdown-item" href="#ourservices">Fixed Deposits (FDs)</a></li>
-		                <li><a class="dropdown-item" href="#ourservices">Recurring Deposits (RDs)</a></li>
-		            </ol>
-		        </li>
-		        <li>
-		            <a class="dropdown-item d-flex justify-content-between align-items-center" href="#ourservices" onclick="toggleSubmenu(event, 'loanSubmenu')">
-		                Loan and Credit Services <i class="fa-solid fa-plus"></i>
-		            </a>
-		            <ul class="submenu list-unstyled ms-3" id="loanSubmenu">
-		                <li><a class="dropdown-item" href="#ourservices">Personal Loans</a></li>
-		                <li><a class="dropdown-item" href="#ourservices">Home Loans</a></li>
-		                <li><a class="dropdown-item" href="#ourservices">Education Loans</a></li>
-		                <li><a class="dropdown-item" href="#ourservices">Business Loans</a></li>
-		            </ul>
-		        </li>
-		        <li>
-		            <a class="dropdown-item d-flex justify-content-between align-items-center" href="#ourservices" onclick="toggleSubmenu(event, 'digitalSubmenu')">
-		                Digital Banking <i class="fa-solid fa-plus"></i>
-		            </a>
-		            <ul class="submenu list-unstyled ms-3" id="digitalSubmenu">
-		                <li><a class="dropdown-item" href="#ourservices">Internet Banking</a></li>
-		                <li><a class="dropdown-item" href="#ourservices">Mobile Banking</a></li>
-		                <li><a class="dropdown-item" href="#ourservices">UPI & Payment Services</a></li>
-		            </ul>
-		        </li>
-		    </ul>
-		</li>
-		
-        <li class="nav-item"><a class="nav-link active" href="#contactus"><i class="fas fa-comment"></i> Contact Us</a></li>
+          <a class="nav-link dropdown-toggle primary-color" href="#" role="button" data-bs-toggle="dropdown">
+            <i class="fa-solid fa-layer-group"></i> Services
+          </a>
+          <ul class="dropdown-menu primary-color">
+            <li>
+              <a class="dropdown-item d-flex justify-content-between align-items-center primary-color" href="#ourservices" onclick="toggleSubmenu(event, 'depositSubmenu')">
+                Deposit Service <i class="fa-solid fa-plus"></i>
+              </a>
+              <ol class="submenu list-unstyled ms-3" id="depositSubmenu">
+                <li><a class="dropdown-item" href="#ourservices">Savings Accounts</a></li>
+                <li><a class="dropdown-item" href="#ourservices">Current Accounts</a></li>
+                <li><a class="dropdown-item" href="#ourservices">Fixed Deposits (FDs)</a></li>
+                <li><a class="dropdown-item" href="#ourservices">Recurring Deposits (RDs)</a></li>
+              </ol>
+            </li>
+            <li>
+              <a class="dropdown-item d-flex justify-content-between align-items-center" href="#ourservices" onclick="toggleSubmenu(event, 'loanSubmenu')">
+                Loan and Credit Services <i class="fa-solid fa-plus"></i>
+              </a>
+              <ul class="submenu list-unstyled ms-3" id="loanSubmenu">
+                <li><a class="dropdown-item" href="#ourservices">Personal Loans</a></li>
+                <li><a class="dropdown-item" href="#ourservices">Home Loans</a></li>
+                <li><a class="dropdown-item" href="#ourservices">Education Loans</a></li>
+                <li><a class="dropdown-item" href="#ourservices">Business Loans</a></li>
+              </ul>
+            </li>
+            <li>
+              <a class="dropdown-item d-flex justify-content-between align-items-center" href="#ourservices" onclick="toggleSubmenu(event, 'digitalSubmenu')">
+                Digital Banking <i class="fa-solid fa-plus"></i>
+              </a>
+              <ul class="submenu list-unstyled ms-3" id="digitalSubmenu">
+                <li><a class="dropdown-item" href="#ourservices">Internet Banking</a></li>
+                <li><a class="dropdown-item" href="#ourservices">Mobile Banking</a></li>
+                <li><a class="dropdown-item" href="#ourservices">UPI & Payment Services</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item"><a class="nav-link primary-color" href="/contact"><i class="fas fa-comment"></i> Contact Us</a></li>
       </ul>
 
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link active" href="/login"><i class="fas fa-sign-in-alt"></i> LOGIN</a></li>
-        <li class="nav-item"><a class="nav-link active" href="/register"><i class="fas fa-user-plus"></i> REGISTER</a></li>
-      </ul>
+      <!-- Search button on the right -->
+      <form class="d-flex">
+        <input class="form-control own-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-light search-btn" type="submit"><i class="fa fa-search"></i></button>
+      </form>
     </div>
   </div>
 </nav>
@@ -171,9 +260,82 @@
 <!-- End of Dynamic content -->
 
 <!-- Start footer -->
-<div class="container-fluid p-1 pt-3 bg-primary text-center text-white custom-navbar ">
-	<p><a href="/" class="text-white text-decoration-none">bcryptbank.com</a></p>
-</div>
+<footer class="custom-navbar secondary-color pt-5 pb-4">
+    <div class="container">
+        <div class="row">
+            <!-- Company Info -->
+            <div class="col-md-3">
+                <h5 class="text-uppercase secondary-color fw-bold"> <i class="fa-solid own-solid fa-building-columns"></i> BCrypt</h5>
+                <p class="secondary-color">At BCrypt Bank, we believe in making banking simple, secure, and seamless. Whether you're looking to save for the future, apply for a loan, or experience the convenience of digital banking, we have the right solutions tailored just for you. With our state-of-the-art security and customer-first approach, managing your finances has never been easier. Join us today and take the first step toward a smarter banking experience.</p>
+                <div>
+                    <a href="#" class="primary-color fs-4 me-3"><i class="fab fa-facebook fa-lg"></i></a>
+                    <a href="#" class="primary-color fs-4 me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                    <a href="#" class="primary-color fs-4 me-3"><i class="fab fa-instagram fa-lg"></i></a>
+                    <a href="#" class="primary-color fs-4 "><i class="fab fa-linkedin fa-lg"></i></a>
+                </div>
+            </div>
+
+            <!-- Useful Links -->
+            <div class="col-md-3">
+                <h5 class="text-uppercase fw-bold">Useful Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="secondary-color text-decoration-none">About Us</a></li>
+                    <li><a href="#" class="secondary-color text-decoration-none">Features</a></li>
+                    <li><a href="#" class="secondary-color text-decoration-none">Services</a></li>
+                    <li><a href="#" class="secondary-color text-decoration-none">FAQs</a></li>
+                    <li><a href="#" class="secondary-color text-decoration-none">Blogs</a></li>
+                    <li><a href="#" class="secondary-color text-decoration-none">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Instagram Section -->
+            <div class="col-md-3">
+                <h5 class="text-uppercase fw-bold">Instagram</h5>
+                <div class="d-flex flex-wrap">
+                    <img src="img/crousel/banking2.jpg" class="img-fluid m-1" width="100">
+                    <img src="img/digital-rupee-technology-background-design_1017-36659.jpg" class="img-fluid m-1" width="100">
+                    <img src="img/image-one.png" class="img-fluid m-1" width="100">
+                    <img src="img/crousel/wwang_040522_102.jpg" class="img-fluid m-1" width="100">
+                    <img src="img/digital-rupee-technology-background-design_1017-36659.jpg" class="img-fluid m-1" width="100">
+                    <img src="img/image-one.png" class="img-fluid m-1" width="100">
+                </div>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="col-md-3">
+                <h5 class="text-uppercase fw-bold">Newsletter</h5>
+                <p>"Stay updated with our latest news, offers, and exclusive banking insights." </p>
+                <div class="input-group">
+                    <input type="email" class="form-control" placeholder="Enter your email">
+                    <button class="btn own-btn own-btn-hover">SignUp</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Info -->
+        <hr class="my-4 border-light">
+        <div class="row text-center">
+            <div class="col-md-4">
+                <i class="fas fa-map-marker-alt"></i> Pune, Maharashtra, India
+            </div>
+            <div class="col-md-4">
+                <i class="fas fa-envelope"></i> <a href="mailto:prajapatideepesh055@gmail.com" class="primary-color">support@bcyptbank.com</a>
+            </div>
+            <div class="col-md-4">
+                <i class="fas fa-phone"></i> <a href="tel:+917724818791" class="primary-color">(+1) 234 567 890</a>
+            </div>
+        </div>
+
+        <!-- Copyright & Back to Top -->
+        <div class="text-center mt-3">
+            <p class="mb-0">&copy; 2025 BCrypt. All Rights Reserved.</p>
+            <a href="#" class="btn own-btn own-btn-hover btn-lg rounded-circle position-fixed bottom-0 end-0 m-3">
+                <i class="fas fa-arrow-up"></i>
+            </a>
+        </div>
+    </div>
+</footer>
+
 <!-- End of footer -->	
 	<script>
 	    document.addEventListener("DOMContentLoaded", function () {

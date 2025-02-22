@@ -20,4 +20,9 @@ public class HomeController {
 	public String registerPage() {
 		return "register";
 	}
+	
+	@GetMapping("/contact")
+	public String contactPage() {
+		return "contact";
+	}
 }

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="header::Layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BCryptBank:ContactUs</title>
+</head>
+<body>
+	<section class="aboutbackground">
+		<!-- ContactUs Section -->
+		<div class="container-fluid pt-5" id="contactus">
+			<div class="row pt-5 pb-5">
+				<div class="col-md-6">
+					<img src="img/contact.png" width="100%" alt="contact-image"/>
+				</div>
+				<div class="col-md-6 pt-5">
+					<div class="card p-4 shadow p-3 mb-5"
+						style="max-width: 1000px">
+						<h1 class="primary-color text-center">Contact Us</h1>
+						<div class="divider-about"></div>
+						<form action="#" method="POST" class="pt-5">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="mb-3">
+										<input type="text" placeholder="Full Name"
+											class="form-control form-control-lg" id="exampleInputEmail1"
+											aria-describedby="emailHelp">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="mb-3">
+										<input type="email" placeholder="Email address"
+											class="form-control form-control-lg"
+											id="exampleInputPassword1">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="mb-3">
+										<input type="number" placeholder="Mobile Number"
+											class="form-control form-control-lg" id="exampleInputName1">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="mb-3">
+										<input type="text" placeholder="Email Subject"
+											class="form-control form-control-lg" id="exampleInputName2">
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="mb-3">
+										<textarea class="form-control form-control-lg" cols=10 rows=5
+											placeholder="Leave a comment here"></textarea>
+									</div>
+								</div>
+							</div>
+							<button type="submit"
+								class="btn own-btn own-btn-hover fw-bold col-md-12">
+								<i class="bi bi-send-fill"></i> Submit
+							</button>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<!-- Left Section: Address -->
+			   <div class="col-md-6 p-5 address-box">
+				    <h4 class="primary-color fs-1 pb-3"><i class="fas fa-map-marker-alt"></i> Our Address</h4>
+				    <p class="bank-name secondary-color">BCrypt Bank - Main Branch</p>
+				    
+				    <p class="secondary-color"><i class="fas fa-map-pin"></i> 1234 Financial Street, Downtown City, XYZ 45678</p>
+				    
+				    <p class="secondary-color"><i class="fas fa-clock"></i> Working Hours: Mon-Fri, 9:00 AM - 6:00 PM</p>
+				    
+				    <p class="secondary-color"><i class="fas fa-envelope"></i> Email: 
+				        <a href="mailto:support@bcyptbank.com">support@bcyptbank.com</a>
+				    </p>
+				    
+				    <p class="secondary-color"><i class="fas fa-phone"></i> Phone: 
+				        <a href="tel:+1234567890">+1 234 567 890</a>
+				    </p>
+				    
+				    <p class="secondary-color"><i class="fas fa-fax"></i> Fax: +1 987 654 321</p>
+				    
+				    <p class="secondary-color"><i class="fas fa-headset"></i> Customer Support: 
+				        <a href="tel:+1800123456">+1 800 123 456</a> (Toll-Free)
+				    </p>
+				    
+				    <p class="secondary-color">
+					    <i class="fas fa-map"></i> 
+					    <a href="https://goo.gl/maps/R5z8WbCz5mD2" target="_blank">
+					        View on Google Maps
+					    </a>
+					</p>
+				</div>
+				
+			    <!-- Right Section: Google Map -->
+			    <div class="col-md-6">
+			        <iframe 
+					   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.903095563476!2d73.85674397497161!3d18.520430271136225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c0657e0a2399%3A0xbfc50c31d50b48a3!2sPune%2C%20Maharashtra%2C%20India!5e0!3m2!1sen!2sin!4v1708600000000!5m2!1sen!2sin" 
+					   width="100%" 
+					   height="450" 
+					   style="border:0;" 
+					   allowfullscreen="" 
+					   loading="lazy">
+					</iframe>
+			    </div>
+			</div>
+		</div>
+		<!-- End of ContactUs -->
+	</section>
+</body>
+</html>
