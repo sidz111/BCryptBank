@@ -8,182 +8,21 @@
 
 	<title>BCrypt Bank</title>
 	
-	<!-- BCrypt Bank icon -->
+	<!-- BCrypt Bank ICON -->
 	<link rel="icon" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/svgs/solid/landmark.svg" type="image/svg+xml">
 	
+	<!-- Bootstrap CSS -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+	
+	<!-- Bootstrap ICON -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	
+	<!-- Fontawesome ICON -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 	
-	<style>
-		html {
-		  scroll-behavior: smooth;
-		}	
-		.custom-navbar {
-		    background-color: #CBDCEB !important;	/* #CBDCEB */
-		    /* backdrop-filter: blur(10px);
-		    -webkit-backdrop-filter: blur(10px); */
-		}
-		
-		/* Background image */
-		.mysection{
-			background-image: url(img/sl_020622_4930_33.jpg);
-			background-size: cover;
-			background-position: center;
-		}
-
-		/* Glassmorphism effect */
-		.glass-card {
-			background: rgba(255, 255, 255, 0.2);
-			border-radius: 15px;
-			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-			backdrop-filter: blur(10px);
-			-webkit-backdrop-filter: blur(10px);
-			border: 1px solid rgba(255, 255, 255, 0.3);
-		}
-
-		.aboutbackground {
-			background-color: #F5F5F5;
-		}
-		
-		/* Drop down menu open */
-		.dropdown-menu {
-		    display: block;
-		    opacity: 0;
-		    visibility: hidden;
-		    transition: opacity 0.3s ease, visibility 0.3s ease;
-		}
-		.dropdown:hover > .dropdown-menu {
-		    opacity: 1;
-		    visibility: visible;
-		}
-
-		/* Hide submenu by default */
-		.submenu.show {
-		    display: block;
-		}
-		.submenu {
-			display: none;
-		    list-style: none;
-		    padding-left: 0;
-		}
-		
-		.submenu li {
-		    position: relative;
-		    padding-left: 25px;
-		}
-		
-		.submenu li::before {
-		    content:" \f0da";
-		    font-family: "Font Awesome 6 Free";
-		    font-weight: 900;
-		    position: absolute;
-		    left: 0;
-		    color: blue;
-		}
-		
-		.submenu li a {
-		    text-decoration: none;
-		    color: black;
-		    display: block;
-		    padding: 5px 10px;
-		    border-radius: 5px;
-		    transition: all 0.3s ease-in-out;
-		}
-		
-		.submenu li a:hover {
-		    background-color: #f8f9fa;
-		    color: blue;
-		    font-weight: bold;
-		}
-		.our-service{
-			background-color: #EFF3EA;
-		}
-		.own-solid{
-			border: 1px solid black;
-			padding: 8px;
-			background-color: none;
-			border-radius:50%;
-			padding-left: 10px;
-		}
-		.card{
-			border-radius: 0px;
-			
-		}
-		.about{
-			background-color: #FCFCFC;
-		}
-		.own-control{
-			border-radius: 20px;
-			width: 300px
-		}
-		.fa{
-			color:black;
-		}
-		.search-btn{
-			border-radius:50%;
-		}
-		.primary-color{
-			color: #000957;
-		}
-		.secondary-color{
-			color: #09122C;
-		}
-		.third-color{
-			color: #000000;
-		}
-		.divider {
-		    width: 100%;
-		    height: 4px;
-		    background: linear-gradient(to right, #007bff, #00d4ff);
-		    border-radius: 2px;
-		    margin: 10px 0;
-		}
-		.divider-about{
-			width: 50%;
-		    height: 4px;
-		    background: linear-gradient(to right, #007bff, #00d4ff);
-		    border-radius: 2px;
-		    margin: 0px auto;
-		}
-		.divider-service{
-			width: 29%;
-		    height: 4px;
-		    background: linear-gradient(to right, #007bff, #00d4ff);
-		    border-radius: 2px;
-		    margin: 10px 0;
-		}
-		.own-btn{
-			border-radius: 30px;
-			background-color: none;
-			border: 1px solid #09122C;
-		}
-		.own-btn-hover:hover{
-			background-color: #001A6E;
-			color: #fff;
-		}
-		
-		/* Footer CSS */
-		footer {
-		    background-color: #06142E; /* Dark blue */
-		    color: white;
-		}
-		footer a {
-		    color: white;
-		    text-decoration: none;
-		}
-		footer a:hover {
-		    text-decoration: underline;
-		}
-		footer .btn-primary {
-		    background-color: #007bff;
-		    border: none;
-		}
-		footer .btn-primary:hover {
-		    background-color: #0056b3;
-		}
-		
-	</style>
+	<!-- Customize CSS -->
+	<link href="css/style.css" rel="stylesheet">
+	
 </head>
 <body>
 <!-- Navigation Bar -->	
@@ -206,7 +45,7 @@
           <a class="nav-link dropdown-toggle primary-color" href="#" role="button" data-bs-toggle="dropdown">
             <i class="fa-solid fa-layer-group"></i> Services
           </a>
-          <ul class="dropdown-menu primary-color">
+          <ul class="dropdown-menu custom-navbar primary-color">
             <li>
               <a class="dropdown-item d-flex justify-content-between align-items-center primary-color" href="#ourservices" onclick="toggleSubmenu(event, 'depositSubmenu')">
                 Deposit Service <i class="fa-solid fa-plus"></i>
@@ -219,7 +58,7 @@
               </ol>
             </li>
             <li>
-              <a class="dropdown-item d-flex justify-content-between align-items-center" href="#ourservices" onclick="toggleSubmenu(event, 'loanSubmenu')">
+              <a class="dropdown-item d-flex justify-content-betweenn primary-color align-items-center" href="#ourservices" onclick="toggleSubmenu(event, 'loanSubmenu')">
                 Loan and Credit Services <i class="fa-solid fa-plus"></i>
               </a>
               <ul class="submenu list-unstyled ms-3" id="loanSubmenu">
@@ -230,7 +69,7 @@
               </ul>
             </li>
             <li>
-              <a class="dropdown-item d-flex justify-content-between align-items-center" href="#ourservices" onclick="toggleSubmenu(event, 'digitalSubmenu')">
+              <a class="dropdown-item d-flex justify-content-between primary-color align-items-center" href="#ourservices" onclick="toggleSubmenu(event, 'digitalSubmenu')">
                 Digital Banking <i class="fa-solid fa-plus"></i>
               </a>
               <ul class="submenu list-unstyled ms-3" id="digitalSubmenu">
@@ -247,8 +86,8 @@
 
       <!-- Search button on the right -->
       <form class="d-flex">
-        <input class="form-control own-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-light search-btn" type="submit"><i class="fa fa-search"></i></button>
+        <input class="form-control own-control me-2 search-cover" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn own-btn-hover search-btn" type="submit"><i class="fa fa-search"></i></button>
       </form>
     </div>
   </div>
@@ -313,7 +152,8 @@
         </div>
 
         <!-- Contact Info -->
-        <hr class="my-4 border-light">
+        <div class="my-4 divider"></div>
+        
         <div class="row text-center">
             <div class="col-md-4">
                 <i class="fas fa-map-marker-alt"></i> Pune, Maharashtra, India
@@ -335,40 +175,29 @@
         </div>
     </div>
 </footer>
+<!-- End of footer -->
 
-<!-- End of footer -->	
-	<script>
-	    document.addEventListener("DOMContentLoaded", function () {
-	    document.getElementById("readMoreBtn").addEventListener("click", function () {
-	            var moreText = document.getElementById("moreText");
-	            var btnText = document.getElementById("readMoreBtn");
-	
-	            if (moreText.classList.contains("d-none")) {
-	                moreText.classList.remove("d-none");
-	                btnText.innerHTML = "Read Less";
-	            } else {
-	                moreText.classList.add("d-none");
-	                btnText.innerHTML = "Read More";
-	            }
-	        });
-	    });
-	    
-	    function toggleSubmenu(event, submenuId) {
-	        event.preventDefault();
-	        let submenu = document.getElementById(submenuId);
-	        let icon = event.target.querySelector("i");
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+	document.getElementById("readMoreBtn").addEventListener("click", function() {
+		var moreText = document.getElementById("moreText");
+		var btnText = document.getElementById("readMoreBtn");
 
-	        if (submenu.classList.contains("show")) {
-	            submenu.classList.remove("show");
-	            icon.classList.replace("fa-minus", "fa-plus");
-	        } else {
-	            submenu.classList.add("show");
-	            icon.classList.replace("fa-plus", "fa-minus");
-	        }
-	    }
-	    
-	 </script>
+		if (moreText.classList.contains("d-none")) {
+			moreText.classList.remove("d-none");
+			btnText.innerHTML = "Read Less";
+		} else {
+			moreText.classList.add("d-none");
+			btnText.innerHTML = "Read More";
+		}
+	});
+});
+</script>
+
+<!-- Customize Javascript -->
 <script src="js/script.js"></script>
+
+<!-- Bootstrap Javascript -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 
 </body>
