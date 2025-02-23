@@ -207,3 +207,6 @@ footer .btn-primary:hover {
 .search-cover:hover{
 	border: 2px solid #000957;
 }
+img{
+	filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.9));
+}
