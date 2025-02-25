@@ -12,7 +12,6 @@ import com.bcrypt.service.SubscribersService;
 public class HomeController {
 	
 	private SubscribersService subscribersService;
-	
 	public HomeController(SubscribersService subscribersService) {
 		super();
 		this.subscribersService = subscribersService;
