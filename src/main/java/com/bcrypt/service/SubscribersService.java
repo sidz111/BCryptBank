@@ -5,6 +5,7 @@ import java.util.List;
 import com.bcrypt.entity.Subscribers;
 
 public interface SubscribersService {
+	
 	//add
 	Subscribers addSubscriber(Subscribers subscribers);
 	
@@ -19,4 +20,5 @@ public interface SubscribersService {
 	
 	//get by email
 	Subscribers getByEmail(String email);
+
 }
