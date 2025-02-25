@@ -42,6 +42,6 @@ public class HomeController {
 		Subscribers s = new Subscribers();
 		s.setEmail(email);
 		subscribersService.addSubscriber(s);
-		return "index";
+		return "redirect:/";
 	}
 }
