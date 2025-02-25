@@ -15,4 +15,5 @@ public interface TransactionRepository extends JpaRepository<Transaction, Long> 
 	List<Transaction> findByAmount(Double amount);// to find by amount
 
 	List<Transaction> findByTimestamp(String timestamp);// to find transactions by time.
+	
 }
