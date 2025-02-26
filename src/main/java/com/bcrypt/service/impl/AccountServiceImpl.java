@@ -15,7 +15,6 @@ public class AccountServiceImpl implements AccountService {
 	
 	@Autowired
 	private AccountRepository accountRepository;
-	
 	public AccountServiceImpl(AccountRepository accountRepository) {
 		super();
 		this.accountRepository = accountRepository;
@@ -35,7 +34,7 @@ public class AccountServiceImpl implements AccountService {
 	public Optional<Account> getAccountByAccountNumber(String accountNumber) {
 		Optional<Account> a = accountRepository.findByAccountNumber(accountNumber);
 		if(a.isEmpty()) {
-			return null;
+			throw new RuntimeException("Account number is not found.");
 		}
 		else {
 			return Optional.ofNullable(a.get());
@@ -44,12 +43,12 @@ public class AccountServiceImpl implements AccountService {
 
 	@Override
 	public List<Account> getAccountsByType(String AccountType) {
-		List<Account> l = accountRepository.findByAccountType(AccountType);
-		if(l.size()<1) {
-			return null;
+		List<Account> list = accountRepository.findByAccountType(AccountType);
+		if(list.size() < 1) {
+			throw new RuntimeException("Account type is not found.");
 		}
 		else {
-			return l;
+			return list;
 		}
 	}
 

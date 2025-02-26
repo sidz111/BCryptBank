@@ -14,10 +14,10 @@ public interface UserService {
 	User updateUser(User user);
 	
 	//Delete User
-	void deleteUser(Integer id);
+	void deleteUser(Long id);
 	
 	//get user by id;
-	Optional<User> getUserById(Integer id);
+	Optional<User> getUserById(Long id);
 	
 	//Get User By username
 	Optional<User> getUserByUsername(String username);
