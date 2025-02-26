@@ -12,7 +12,7 @@ import com.bcrypt.service.UserService;
 @Service
 public class UserServiceImpl implements UserService{
 
-	public UserRepository userRepository;
+	private UserRepository userRepository;
 	public UserServiceImpl(UserRepository userRepository) {
 		super();
 		this.userRepository = userRepository;

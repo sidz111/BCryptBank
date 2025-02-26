@@ -1,5 +1,6 @@
 package com.bcrypt.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -7,16 +8,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bcrypt.entity.Subscribers;
+import com.bcrypt.service.ContactUsService;
 import com.bcrypt.service.SubscribersService;
 
 @Controller
 public class HomeController {
 	
+	@Autowired
+	private ContactUsService contactUsService;
+	
+	@Autowired
 	private SubscribersService subscribersService;
-	public HomeController(SubscribersService subscribersService) {
-		super();
-		this.subscribersService = subscribersService;
-	}
 
 	@GetMapping("/")
 	public String homePage() {
@@ -45,4 +47,6 @@ public class HomeController {
 		subscribersService.addSubscriber(s);
 		return "redirect:/";
 	}
+	
+	
 }
