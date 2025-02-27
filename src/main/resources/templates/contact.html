@@ -19,32 +19,35 @@
 						style="max-width: 1000px">
 						<h1 class="primary-color text-center">Contact Us</h1>
 						<div class="divider-about"></div>
-						<form action="#" method="POST" class="pt-5">
+						<form action="/add-contact-us" method="POST" class="pt-5" th:class="${contact}">
 							<div class="row">
 								<div class="col-md-6">
 									<div class="mb-3">
-										<input type="text" name="fullName" placeholder="Full Name"
-											class="form-control form-control-lg" id="exampleInputEmail1"
-											aria-describedby="emailHelp" required>
+										<input type="text" 
+										name="fullName"
+										placeholder="Full Name"
+											class="form-control form-control-lg" 
+											id="fullName"
+											 required>
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="mb-3">
 										<input type="email" name="email" placeholder="Email address"
 											class="form-control form-control-lg"
-											id="exampleInputPassword1" required>
+											id="email" required>
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="mb-3">
 										<input type="number" name="contactNo" placeholder="Mobile Number"
-											class="form-control form-control-lg" id="exampleInputName1" required>
+											class="form-control form-control-lg" id="contactNo" required>
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="mb-3">
-										<input type="text" name="subject" placeholder="Email Subject"
-											class="form-control form-control-lg" id="exampleInputName2" required>
+										<input type="text" name="subject" placeholder="Enter Subject"
+											class="form-control form-control-lg" id="subject" required>
 									</div>
 								</div>
 								<div class="col-md-12">

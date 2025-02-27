@@ -8,4 +8,5 @@ import com.bcrypt.entity.ContactUs;
 @Repository
 public interface ContactUsRepository extends JpaRepository<ContactUs, Long>{
 
+	
 }

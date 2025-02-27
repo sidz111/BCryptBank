@@ -1,12 +1,17 @@
 package com.bcrypt.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.bcrypt.entity.ContactUs;
 import com.bcrypt.entity.Subscribers;
 import com.bcrypt.service.ContactUsService;
 import com.bcrypt.service.SubscribersService;
@@ -36,7 +41,8 @@ public class HomeController {
 	}
 	
 	@GetMapping("/contact")
-	public String contactPage() {
+	public String contactPage(Model model) {
+		model.addAttribute("contact", new ContactUs());
 		return "contact";
 	}
 	
@@ -48,5 +54,11 @@ public class HomeController {
 		return "redirect:/";
 	}
 	
+	@PostMapping("/add-contact-us")
+	public String addContactUs(@ModelAttribute ContactUs contactUs) {
+		contactUs.setDateAndTime(new Date().toString());
+		contactUsService.addContactUs(contactUs);
+		return "redirect:/contact";
+	}
 	
 }

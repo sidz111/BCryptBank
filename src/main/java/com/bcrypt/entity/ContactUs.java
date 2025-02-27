@@ -22,6 +22,16 @@ public class ContactUs {
 	
 	private String description;
 	
+	private String dateAndTime;
+
+	public String getDateAndTime() {
+		return dateAndTime;
+	}
+
+	public void setDateAndTime(String dateAndTime) {
+		this.dateAndTime = dateAndTime;
+	}
+
 	public String getDescription() {
 		return description;
 	}
