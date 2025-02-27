@@ -246,6 +246,20 @@
 				</div>
 			</div>
 		</div>
+		<div class="container-fluid our-service pb-5 ps-5 pe-5 pt-5">
+			<div class="row pb-5">
+				<div class="col-md-6 mx-auto">
+					<h3 class="text-uppercase fw-bold pb-3 primary-color">Loan EMI Calculator</h3>
+				    <form id="emiCalculator" onsubmit="return calculateEMI(event);">
+				        <input type="number" id="loanAmount" class="form-control mb-2" placeholder="Loan Amount (₹)" required>
+				        <input type="number" id="interestRate" class="form-control mb-2" placeholder="Interest Rate (%)" required>
+				        <input type="number" id="loanTenure" class="form-control mb-2" placeholder="Loan Tenure (Years)" required>
+				        <button type="submit" class="btn own-btn own-btn-hover" style="width:100%;">Calculate EMI</button>
+				        <div id="emiResult" class="alert alert-info d-none mt-2 text-center"></div>
+				    </form>
+				</div>
+			</div>
+		</div>
 	</section>
 
 	<script src="js/script.js"></script>

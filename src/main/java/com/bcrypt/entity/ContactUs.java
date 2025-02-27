@@ -13,39 +13,61 @@ public class ContactUs {
 	private Long id;
 	
 	private String fullName;
+	
 	private String email;
-	private String contactNo;
-	private String subjest;
+	
+	private Long contactNo;
+	
+	private String subject;
+	
+	private String description;
+	
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	public Long getId() {
 		return id;
 	}
+	
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
 	public String getFullName() {
 		return fullName;
 	}
+	
 	public void setFullName(String fullName) {
 		this.fullName = fullName;
 	}
+	
 	public String getEmail() {
 		return email;
 	}
+	
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getContactNo() {
+	
+	public Long getContactNo() {
 		return contactNo;
 	}
-	public void setContactNo(String contactNo) {
+	
+	public void setContactNo(Long contactNo) {
 		this.contactNo = contactNo;
 	}
-	public String getSubjest() {
-		return subjest;
-	}
-	public void setSubjest(String subjest) {
-		this.subjest = subjest;
+	
+	public String getSubject() {
+		return subject;
 	}
 	
+	public void setSubject(String subjest) {
+		this.subject = subjest;
+	}
 	
 }

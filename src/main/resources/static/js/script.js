@@ -55,3 +55,31 @@ function toggleSubmenu(event, submenuId) {
 	});
 });*/
 
+function calculateEMI(event) {
+    event.preventDefault();
+
+    let loanAmount = parseFloat(document.getElementById("loanAmount").value);
+    let interestRate = parseFloat(document.getElementById("interestRate").value);
+    let loanTenure = parseFloat(document.getElementById("loanTenure").value);
+
+    if (isNaN(loanAmount) || loanAmount <= 0 || isNaN(interestRate) || interestRate <= 0 || isNaN(loanTenure) || loanTenure <= 0) {
+        alert("Please enter valid positive numbers.");
+        return false;
+    }
+
+    let monthlyRate = interestRate / (12 * 100);
+
+    let numberOfMonths = loanTenure * 12;
+
+    let emi = (loanAmount * monthlyRate * Math.pow(1 + monthlyRate, numberOfMonths)) / 
+              (Math.pow(1 + monthlyRate, numberOfMonths) - 1);
+
+    emi = emi.toFixed(2);
+
+    let emiResult = document.getElementById("emiResult");
+    emiResult.innerHTML = `Your EMI is <strong>₹${emi}</strong> per month.`;
+    emiResult.classList.remove("d-none");
+
+    return false;
+}
+

@@ -2,6 +2,7 @@ package com.bcrypt.service.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bcrypt.entity.ContactUs;
@@ -11,9 +12,8 @@ import com.bcrypt.service.ContactUsService;
 @Service
 public class ContactUsServiceImpl implements ContactUsService{
 	
-	
+	@Autowired
 	private ContactUsRepository contactUsRepository;
-
 	public ContactUsServiceImpl(ContactUsRepository contactUsRepository) {
 		super();
 		this.contactUsRepository = contactUsRepository;
