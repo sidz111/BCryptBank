@@ -82,4 +82,3 @@ function calculateEMI(event) {
 
     return false;
 }
-

@@ -55,10 +55,11 @@ public class HomeController {
 	}
 	
 	@PostMapping("/add-contact-us")
-	public String addContactUs(@ModelAttribute ContactUs contactUs) {
+	public String addContactUs(@ModelAttribute ContactUs contactUs, Model model) {
 		contactUs.setDateAndTime(new Date().toString());
 		contactUsService.addContactUs(contactUs);
-		return "redirect:/contact";
+		model.addAttribute("success", true);
+		return "contact";
 	}
 	
 }
