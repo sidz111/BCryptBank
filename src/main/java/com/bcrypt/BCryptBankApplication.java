@@ -10,4 +10,5 @@ public class BCryptBankApplication {
 		SpringApplication.run(BCryptBankApplication.class, args);
 		System.out.println("Welcome To BCrypt Banking..!!");
 	}
+	
 }
