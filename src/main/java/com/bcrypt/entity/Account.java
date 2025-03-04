@@ -2,7 +2,7 @@ package com.bcrypt.entity;
 
 import java.util.List;
 
-import jakarta.persistence.CascadeType;
+//import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,7 +26,7 @@ public class Account {
 	@JoinColumn(name = "user_id")
 	private User user;
 
-	@OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "account")
 	private List<Transaction> transactions;
 
 	public Long getId() {
