@@ -39,22 +39,6 @@ function toggleSubmenu(event, submenuId) {
 	}
 }
 
-/*This is not working, i will work on it.*/
-/*document.addEventListener("DOMContentLoaded", function() {
-	document.getElementById("readMoreBtn").addEventListener("click", function() {
-		var moreText = document.getElementById("moreText");
-		var btnText = document.getElementById("readMoreBtn");
-
-		if (moreText.classList.contains("d-none")) {
-			moreText.classList.remove("d-none");
-			btnText.innerHTML = "Read Less";
-		} else {
-			moreText.classList.add("d-none");
-			btnText.innerHTML = "Read More";
-		}
-	});
-});*/
-
 function calculateEMI(event) {
     event.preventDefault();
 

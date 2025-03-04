@@ -31,7 +31,7 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 
 <!-- Customize CSS -->
-<link href="css/style.css" rel="stylesheet">
+<link th:href="@{css/style.css}" rel="stylesheet">
 
 </head>
 <body>
@@ -230,24 +230,45 @@
 	<!-- End of footer -->
 
 	<script>
-document.addEventListener("DOMContentLoaded", function() {
-	document.getElementById("readMoreBtn").addEventListener("click", function() {
-		var moreText = document.getElementById("moreText");
-		var btnText = document.getElementById("readMoreBtn");
+		document.addEventListener("DOMContentLoaded", function() {
+			document.getElementById("readMoreBtn").addEventListener("click", function() {
+				var moreText = document.getElementById("moreText");
+				var btnText = document.getElementById("readMoreBtn");
+		
+				if (moreText.classList.contains("d-none")) {
+					moreText.classList.remove("d-none");
+					btnText.innerHTML = "Read Less";
+				} else {
+					moreText.classList.add("d-none");
+					btnText.innerHTML = "Read More";
+				}
+			});
+		});
+		
+		document.addEventListener("DOMContentLoaded", function() {
+	        let alertBox = document.querySelector(".alert");
+	        let progressBar = document.querySelector(".progress-bar");
 
-		if (moreText.classList.contains("d-none")) {
-			moreText.classList.remove("d-none");
-			btnText.innerHTML = "Read Less";
-		} else {
-			moreText.classList.add("d-none");
-			btnText.innerHTML = "Read More";
-		}
-	});
-});
-</script>
+	        if (alertBox) {
+	            setTimeout(() => {
+	                alertBox.classList.add("show");
+	                progressBar.style.transform = "scaleX(1)";
+	            }, 100);
+
+	            setTimeout(() => {
+	                alertBox.classList.remove("show");
+	                alertBox.classList.add("hide");
+
+	                setTimeout(() => {
+	                    alertBox.style.display = "none";
+	                }, 500);
+	            }, 4000);
+	        }
+	    });
+	</script>
 
 	<!-- Customize Javascript -->
-	<script src="js/script.js"></script>
+	<script th:src="@{js/script.js}"></script>
 
 	<!-- Bootstrap Javascript -->
 	<script

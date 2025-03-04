@@ -9,6 +9,10 @@
 </head>
 <body>
 	<section class="aboutbackground pt-5">
+		<div th:if="${message}" th:classappend="${message.type}" class="alert col-md-6 mx-auto mt-5 text-center" role="alert">
+			<p th:text="${message.content}"></p>
+			<div class="progress-bar"></div>
+		</div>
 		<!-- Slider of images -->
 		<div class="container mt-5 pt-5 pb-5">
 			<div class="row">
@@ -246,6 +250,7 @@
 				</div>
 			</div>
 		</div>
+		<!-- Loan EMI calculator -->
 		<div class="container-fluid our-service pb-5 ps-5 pe-5 pt-5">
 			<div class="row pb-5">
 				<div class="col-md-6 mx-auto">
