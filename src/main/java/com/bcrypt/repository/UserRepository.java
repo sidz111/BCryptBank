@@ -12,7 +12,7 @@ import com.bcrypt.entity.User;
 public interface UserRepository extends JpaRepository<User, Long>{
 	
 	//It is used to find user by username (It will use for authentication).
-	Optional<User> findByUsername(String username);
+	User findByUsername(String username);
 	
 	//It is used to find user by email id.
 	Optional<User> findByEmail(String email);
