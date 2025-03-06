@@ -1,5 +1,6 @@
 package com.bcrypt.config;
 
+import org.antlr.v4.runtime.atn.SemanticContext.AND;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -36,6 +37,8 @@ public class SecurityConfiguration {
 	public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
 		httpSecurity.csrf().disable()
 		.authorizeHttpRequests()
+		.requestMatchers("/register").permitAll()
+		.requestMatchers("/css/**", "/js/**", "/img/**").permitAll()
 		.requestMatchers("/admin/**")
 		.hasRole("ADMIN")
 		.requestMatchers("/user/**")
@@ -47,7 +50,11 @@ public class SecurityConfiguration {
 		.and()
 		.formLogin()
 		.loginPage("/login").loginProcessingUrl("/login").defaultSuccessUrl("/")
-		.permitAll();
+		.permitAll()
+		.and()
+		.logout()
+		.logoutUrl("/logout")
+		.logoutSuccessUrl("/login").permitAll();
 		
 		return httpSecurity.build();
 	}
