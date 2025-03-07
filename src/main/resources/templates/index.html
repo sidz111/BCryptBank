@@ -1,6 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-	th:replace="~{header::Layout(~{::section})}">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{header::Layout(~{::section})}">
 <head>
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -43,7 +42,7 @@
 					</div>
 				</div>
 				<div class="col-md-6 ps-2">
-					<img src="img/image-one.png" width="90%"
+					<img th:src="@{img/image-one.png}" width="90%"
 						alt="hero-section-image-not-found" loading="lazy">
 				</div>
 			</div>
@@ -54,7 +53,7 @@
 		<div class="container-fluid about pt-5 pb-5 mt-5" id="aboutus">
 			<div class="row">
 				<div class="col-md-6 pb-4 ps-5">
-					<img src="img/—Pngtree—flat wind h5 bank financial_4525642.png"
+					<img th:src="@{img/—Pngtree—flat wind h5 bank financial_4525642.png}"
 						width="80%" alt="about-us-image" loading="lazy" />
 				</div>
 				<div class="col-md-6 ps-4 pe-4">
@@ -267,7 +266,7 @@
 		</div>
 	</section>
 
-	<script src="js/script.js"></script>
+	<script th:src="@{js/script.js}"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

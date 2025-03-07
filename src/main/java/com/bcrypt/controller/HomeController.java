@@ -47,7 +47,7 @@ public class HomeController {
 	@GetMapping("/login")
 	public String loginPage(Model model) {
 		model.addAttribute("title", "BCrypt: Login");
-		return "login.html";
+		return "login";
 	}
 	
 	@GetMapping("/register")
@@ -93,22 +93,35 @@ public class HomeController {
 	@PostMapping("/do_register")
 	public String addRegister(@ModelAttribute User user, @RequestParam(value="agreement", defaultValue="false") boolean agreement, Model model, HttpSession session) {
 		
-		try {	
+		try {
+			// Checking if the user agreed to terms and conditions.
 			if(!agreement) {
 				throw new Exception("OOP's! You have not agreed the term and conditions 😅");
 			}
-			User user1 = new User();
-			userService.addUser(user1);
 			
+			//Saving the user in the database.
+			this.userService.addUser(user);
+			
+			//Resetting the form for a new user.
 			model.addAttribute("user", new User());
-			session.setAttribute("message", new Message("✔️ Now you are the part of our website. Welcome 😄", "alert-success"));
 			
+			//showing message if user is successfully registered.
+			session.setAttribute("message", new Message("✔️ You have successfully registerd. Welcome 😄", "alert-success"));
+			
+			//Redirecting to the registration page.
 			return "redirect:/register";
 			
 		}catch(Exception e) {
+			//Handling exceptions
 			e.printStackTrace();
+			
+			//it is used keeping the user’s entered data
 			model.addAttribute("user", user);
+			
+			//showing message if user is not successfully registered, if user not click on the term and conditions.
 			session.setAttribute("message", new Message("❌ "+e.getMessage()+" ", "alert-danger"));
+			
+			//Redirecting back to the registration page
 			return "redirect:/register";
 		}
 		

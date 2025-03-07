@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-	th:replace="~{header::Layout(~{::section})}">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{header::Layout(~{::section})}">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,7 +16,7 @@
 			</div>
 			<div class="row pb-5">
 				<div class="col-md-6">
-					<img src="img/contact.png" width="100%" alt="contact-image"
+					<img th:src="@{img/contact.png}" width="100%" alt="contact-image"
 						loading="lazy" />
 				</div>
 				<div class="col-md-6 pt-5">
