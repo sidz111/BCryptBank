@@ -58,6 +58,7 @@ public class HomeController {
 	        session.removeAttribute("message");
 	    }
 		model.addAttribute("title", "BCrypt: Register");
+		model.addAttribute("user", new User());
 		return "register";
 	}
 	
@@ -103,7 +104,7 @@ public class HomeController {
 			this.userService.addUser(user);
 			
 			//Resetting the form for a new user.
-			model.addAttribute("user", new User());
+//			model.addAttribute("user", new User());
 			
 			//showing message if user is successfully registered.
 			session.setAttribute("message", new Message("✔️ You have successfully registerd. Welcome 😄", "alert-success"));
@@ -116,7 +117,7 @@ public class HomeController {
 			e.printStackTrace();
 			
 			//it is used keeping the user’s entered data
-			model.addAttribute("user", user);
+//			model.addAttribute("user", user);
 			
 			//showing message if user is not successfully registered, if user not click on the term and conditions.
 			session.setAttribute("message", new Message("❌ "+e.getMessage()+" ", "alert-danger"));
