@@ -24,7 +24,7 @@ public class BCryptBankApplication {
 				User u = new User();
 				u.setUsername("admin");
 				u.setPassword(passwordEncoder.encode("1234"));
-				u.setRole("ADMIN");
+				u.setRole("ROLE_ADMIN");
 				userRepository.save(u);
 				System.out.println("Admin Created done");
 			}
