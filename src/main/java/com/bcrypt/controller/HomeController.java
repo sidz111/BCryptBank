@@ -6,8 +6,11 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.Date;
+import java.util.Random;
+import java.util.RandomAccess;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -53,6 +56,8 @@ public class HomeController {
 			model.addAttribute("message", message);
 			session.removeAttribute("message");
 		}
+		String userName = SecurityContextHolder.getContext().getAuthentication().getName();
+		model.addAttribute("user", userRepository.findByUsername(userName));
 		return "index.html";
 	}
 	
@@ -75,7 +80,6 @@ public class HomeController {
 			@RequestParam("address") String address,
 			@RequestParam("branch") String branch,
 			@RequestParam("adhar") Long adhar,
-			@RequestParam("accountNo") Long accountNo,
 			@RequestParam("dateOfBirth") String dateOfBirth,
 			@RequestParam("profilePhoto") MultipartFile photo,
 			Model model
@@ -93,6 +97,11 @@ public class HomeController {
 		
 		String userImage = "default.jpg";
 		
+		Random r = new Random();
+		
+		Long n = 1_000_000_000L + ((Long) (r.nextLong() * (9_000_000_000L)));
+		
+		u.setAccountNo(n);
 		if(!photo.isEmpty()) {
 			userImage = System.currentTimeMillis() + "_" + photo.getOriginalFilename();
 			Path uploadDir = Paths.get("src/main/resources/static/users");
@@ -107,9 +116,10 @@ public class HomeController {
 		}
 		
 		u.setProfilePhoto(userImage);
+		
 		userService.addUser(u);
 
-		return "login";
+		return "redirect:/";
 	}
 	
 	@GetMapping("/contact")
