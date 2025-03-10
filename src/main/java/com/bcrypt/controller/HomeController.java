@@ -64,7 +64,8 @@ public class HomeController {
 	}
 	
 	@GetMapping("/register-user")
-	public String registerPage() {
+	public String registerPage(Model model) {
+		model.addAttribute("title", "BCrypt: Register");
 		return "register";
 	}
 	
