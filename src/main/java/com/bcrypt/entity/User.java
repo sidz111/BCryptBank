@@ -35,8 +35,6 @@ public class User {
     
     private String profilePhoto;
     
-    private String signature;
-    
     private String dateOfBirth;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
@@ -131,14 +129,6 @@ public class User {
 
 	public void setProfilePhoto(String profilePhoto) {
 		this.profilePhoto = profilePhoto;
-	}
-
-	public String getSignature() {
-		return signature;
-	}
-
-	public void setSignature(String signature) {
-		this.signature = signature;
 	}
 
 	public String getDateOfBirth() {

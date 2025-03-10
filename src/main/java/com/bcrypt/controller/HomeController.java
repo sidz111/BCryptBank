@@ -1,19 +1,27 @@
 package com.bcrypt.controller;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.bcrypt.entity.ContactUs;
 import com.bcrypt.entity.Subscribers;
 import com.bcrypt.entity.User;
 import com.bcrypt.helper.Message;
+import com.bcrypt.repository.UserRepository;
 import com.bcrypt.service.ContactUsService;
 import com.bcrypt.service.SubscribersService;
 import com.bcrypt.service.UserService;
@@ -32,6 +40,11 @@ public class HomeController {
 	@Autowired
 	private UserService userService;
 	
+	@Autowired
+	UserRepository userRepository;
+	
+	@Autowired
+	PasswordEncoder passwordEncoder;
 
 	@GetMapping("/")
 	public String homePage(Model model, HttpSession session) {
@@ -50,15 +63,55 @@ public class HomeController {
 		return "login";
 	}
 	
-	@GetMapping("/register")
-	public String registerPage(Model model, HttpSession session) {
-		Message message = (Message) session.getAttribute("message");
-	    if (message != null) {
-	        model.addAttribute("message", message);
-	        session.removeAttribute("message");
-	    }
-		model.addAttribute("title", "BCrypt: Register");
+	@GetMapping("/register-user")
+	public String registerPage() {
 		return "register";
+	}
+	
+	@PostMapping("/register-user-new")
+	public String registerNewUser(
+			@RequestParam("name") String name,
+			@RequestParam("username") String username,
+			@RequestParam("password") String password,
+			@RequestParam("email") String email,
+			@RequestParam("address") String address,
+			@RequestParam("branch") String branch,
+			@RequestParam("adhar") Long adhar,
+			@RequestParam("accountNo") Long accountNo,
+			@RequestParam("dateOfBirth") String dateOfBirth,
+			@RequestParam("profilePhoto") MultipartFile photo,
+			Model model
+			) throws IOException {
+		User u = new User();
+		u.setName(name);
+		u.setUsername(username);
+		u.setPassword(passwordEncoder.encode(password));
+		u.setEmail(email);
+		u.setAddress(address);
+		u.setBranch(branch);
+		u.setAdhar(adhar);
+		u.setDateOfBirth(dateOfBirth);
+		u.setRole("ROLE_USER");
+		
+		String userImage = "default.jpg";
+		
+		if(!photo.isEmpty()) {
+			userImage = System.currentTimeMillis() + "_" + photo.getOriginalFilename();
+			Path uploadDir = Paths.get("src/main/resources/static/users");
+			
+			if(!Files.exists(uploadDir)) {
+				Files.createDirectories(uploadDir);
+			}
+			
+			Path filePath = uploadDir.resolve(userImage);
+			Files.copy(photo.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
+			System.err.println("Path is: "+filePath);
+		}
+		
+		u.setProfilePhoto(userImage);
+		userService.addUser(u);
+
+		return "login";
 	}
 	
 	@GetMapping("/contact")
@@ -90,40 +143,4 @@ public class HomeController {
 		return "redirect:/contact";
 	}
 	
-	@PostMapping("/do_register")
-	public String addRegister(@ModelAttribute User user, @RequestParam(value="agreement", defaultValue="false") boolean agreement, Model model, HttpSession session) {
-		
-		try {
-			// Checking if the user agreed to terms and conditions.
-			if(!agreement) {
-				throw new Exception("OOP's! You have not agreed the term and conditions 😅");
-			}
-			
-			//Saving the user in the database.
-			this.userService.addUser(user);
-			
-			//Resetting the form for a new user.
-			model.addAttribute("user", new User());
-			
-			//showing message if user is successfully registered.
-			session.setAttribute("message", new Message("✔️ You have successfully registerd. Welcome 😄", "alert-success"));
-			
-			//Redirecting to the registration page.
-			return "redirect:/register";
-			
-		}catch(Exception e) {
-			//Handling exceptions
-			e.printStackTrace();
-			
-			//it is used keeping the user’s entered data
-			model.addAttribute("user", user);
-			
-			//showing message if user is not successfully registered, if user not click on the term and conditions.
-			session.setAttribute("message", new Message("❌ "+e.getMessage()+" ", "alert-danger"));
-			
-			//Redirecting back to the registration page
-			return "redirect:/register";
-		}
-		
-	}
 }
