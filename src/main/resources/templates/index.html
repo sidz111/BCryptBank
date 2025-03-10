@@ -34,10 +34,10 @@
 								title="Click me to login" href="/login"><i
 								class="fas fa-sign-in-alt"></i> LOGIN</a>
 						</div>
-						<div class="col-md-4">
+						<div class="col-md-4" th:if="${user.role == 'ROLE_ADMIN'}">
 							<a class="nav-link active  btn own-btn own-btn-hover p-2"
-								title="Click me to register" href="/register"><i
-								class="fas fa-user-plus"></i> REGISTER</a>
+								title="Click me to register" href="/register-user"><i
+								class="fas fa-user-plus"></i> Add New Acc</a>
 						</div>
 					</div>
 				</div>
