@@ -41,7 +41,7 @@ public class HomeController {
 	private UserService userService;
 	
 	@Autowired
-	UserRepository userRepository;
+	private UserRepository userRepository;
 	
 	@Autowired
 	PasswordEncoder passwordEncoder;
