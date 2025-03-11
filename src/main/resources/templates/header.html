@@ -57,59 +57,54 @@
 						href="#aboutus"><i class="fa-solid fa-address-card"></i> About
 							Us</a></li>
 
-					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle primary-color" href="#"
-						role="button" data-bs-toggle="dropdown"> <i
-							class="fa-solid fa-layer-group"></i> Services
-					</a>
-						<ul class="dropdown-menu custom-navbar primary-color">
-							<li><a
-								class="dropdown-item d-flex justify-content-between align-items-center primary-color"
-								href="#ourservices"
-								onclick="toggleSubmenu(event, 'depositSubmenu')"> Deposit
-									Service <i class="fa-solid fa-plus"></i>
-							</a>
-								<ol class="submenu list-unstyled ms-3" id="depositSubmenu">
-									<li><a class="dropdown-item" href="#ourservices">Savings
-											Accounts</a></li>
-									<li><a class="dropdown-item" href="#ourservices">Current
-											Accounts</a></li>
-									<li><a class="dropdown-item" href="#ourservices">Fixed
-											Deposits (FDs)</a></li>
-									<li><a class="dropdown-item" href="#ourservices">Recurring
-											Deposits (RDs)</a></li>
-								</ol></li>
-							<li><a
-								class="dropdown-item d-flex justify-content-betweenn primary-color align-items-center"
-								href="#ourservices"
-								onclick="toggleSubmenu(event, 'loanSubmenu')"> Loan and
-									Credit Services <i class="fa-solid fa-plus"></i>
-							</a>
-								<ul class="submenu list-unstyled ms-3" id="loanSubmenu">
-									<li><a class="dropdown-item" href="#ourservices">Personal
-											Loans</a></li>
-									<li><a class="dropdown-item" href="#ourservices">Home
-											Loans</a></li>
-									<li><a class="dropdown-item" href="#ourservices">Education
-											Loans</a></li>
-									<li><a class="dropdown-item" href="#ourservices">Business
-											Loans</a></li>
-								</ul></li>
-							<li><a
-								class="dropdown-item d-flex justify-content-between primary-color align-items-center"
-								href="#ourservices"
-								onclick="toggleSubmenu(event, 'digitalSubmenu')"> Digital
-									Banking <i class="fa-solid fa-plus"></i>
-							</a>
-								<ul class="submenu list-unstyled ms-3" id="digitalSubmenu">
-									<li><a class="dropdown-item" href="#ourservices">Internet
-											Banking</a></li>
-									<li><a class="dropdown-item" href="#ourservices">Mobile
-											Banking</a></li>
-									<li><a class="dropdown-item" href="#ourservices">UPI &
-											Payment Services</a></li>
-								</ul></li>
-						</ul></li>
+					<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle primary-color" href="#" role="button" data-bs-toggle="dropdown">
+        <i class="fa-solid fa-layer-group"></i> Services
+    </a>
+    <ul class="dropdown-menu custom-navbar primary-color">
+        <!-- Deposit Service Option -->
+        <li>
+            <a class="dropdown-item d-flex justify-content-between align-items-center primary-color"
+                href="#ourservices" onclick="toggleSubmenu(event, 'depositSubmenu')"> 
+                Deposit Service <i class="fa-solid fa-plus"></i>
+            </a>
+            <ul class="submenu list-unstyled ms-3" id="depositSubmenu">
+                <li><a class="dropdown-item" href="#ourservices">Savings Accounts</a></li>
+                <li><a class="dropdown-item" href="#ourservices">Current Accounts</a></li>
+                <li><a class="dropdown-item" href="#ourservices">Fixed Deposits (FDs)</a></li>
+                <li><a class="dropdown-item" href="#ourservices">Recurring Deposits (RDs)</a></li>
+            </ul>
+        </li>
+
+        <!-- Loan and Credit Services Option -->
+        <li>
+            <a class="dropdown-item d-flex justify-content-between align-items-center primary-color"
+                href="#ourservices" onclick="toggleSubmenu(event, 'loanSubmenu')"> 
+                Loan and Credit Services <i class="fa-solid fa-plus"></i>
+            </a>
+            <ul class="submenu list-unstyled ms-3" id="loanSubmenu">
+                <li><a class="dropdown-item" href="#ourservices">Personal Loans</a></li>
+                <li><a class="dropdown-item" href="#ourservices">Home Loans</a></li>
+                <li><a class="dropdown-item" href="#ourservices">Education Loans</a></li>
+                <li><a class="dropdown-item" href="#ourservices">Business Loans</a></li>
+            </ul>
+        </li>
+
+        <!-- Digital Banking Option -->
+        <li>
+            <a class="dropdown-item d-flex justify-content-between align-items-center primary-color"
+                href="#ourservices" onclick="toggleSubmenu(event, 'digitalSubmenu')"> 
+                Digital Banking <i class="fa-solid fa-plus"></i>
+            </a>
+            <ul class="submenu list-unstyled ms-3" id="digitalSubmenu">
+                <li><a class="dropdown-item" href="#ourservices">Internet Banking</a></li>
+                <li><a class="dropdown-item" href="#ourservices">Mobile Banking</a></li>
+                <li><a class="dropdown-item" href="#ourservices">UPI & Payment Services</a></li>
+            </ul>
+        </li>
+    </ul>
+</li>
+
 
 					<li class="nav-item"><a class="nav-link primary-color"
 						href="/contact"><i class="fas fa-comment"></i> Contact Us</a></li>
@@ -123,7 +118,7 @@
 						<i class="fa fa-search"></i>
 					</button>
 				</form>
-				<a class="btn bg-warning" href="/logout">Logout</a><!-- <i class="bi bi-door-closed-fill fs"></i> -->
+				<a th:if="${user != null}" class="btn bg-warning" href="/logout">Logout</a><!-- <i class="bi bi-door-closed-fill fs"></i> -->
 			</div>
 		</div>
 	</nav>

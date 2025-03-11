@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<title>transaction-money</title>
+</head>
+<body>
+	<h1>transaction-money</h1>
+	
+	<form action="/send-money" method="post">
+	<input type="text" name="accountNumber" placeholder="Enter account No" required/>
+	<input type="text" name="balance" placeholder="Enter Ammount" required />
+	<button type="submit">Send Money</button>
+	</form>
+</body>
+</html>

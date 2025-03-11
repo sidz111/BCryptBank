@@ -32,14 +32,17 @@
 					<div class="row">
 						<div class="col-md-4 pb-2">
 							<a class="nav-link active btn own-btn own-btn-hover p-2"
-								title="Click me to login" href="/login"><i
-								class="fas fa-sign-in-alt"></i> LOGIN</a>
+								title="Click me to login" href="/create-acc-page"><i
+								class="fas fa-sign-in-alt"></i> Create New Acc</a>
 						</div>
 						<div class="col-md-4" th:if="${user.role == 'ROLE_ADMIN'}">
 							<a class="nav-link active  btn own-btn own-btn-hover p-2"
 								title="Click me to register" href="/register-user"><i
 								class="fas fa-user-plus"></i> Add New Acc</a>
 						</div>
+						<h2 th:text="${user.accountNo}"></h2>
+						<h2 th:text="${user.name}"></h2>
+						<h2 th:text="${user.role}"></h2>
 					</div>
 				</div>
 				<div class="col-md-6 ps-2">
