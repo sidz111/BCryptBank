@@ -182,7 +182,8 @@ public class HomeController {
 	}
 	
 	@GetMapping("/create-acc-page")
-	public String getSendMoneyPage() {
+	public String getSendMoneyPage(Model model) {
+		model.addAttribute("title", "BCrypt: Open-Account");
 		return "create-acc-page";
 	}
 
@@ -202,7 +203,8 @@ public class HomeController {
 	}
 	
 	@GetMapping("/transaction-money")
-	public String getTransactionPage() {
+	public String getTransactionPage(Model model) {
+		model.addAttribute("title", "BCrypt: Transfer Money");
 		return "transaction-money";
 	}
 
@@ -222,6 +224,18 @@ public class HomeController {
 		accountService.saveAccount(account.get());
 		accountService.saveAccount(userAccount.get());
 		return "redirect:/";
+	}
+	
+	@GetMapping("/user-profile")
+	public String profilePage(Model model) {
+		model.addAttribute("title", "BCrypt: Profile-Page");
+		return "User-Profile";
+	}
+	
+	@GetMapping("/history")
+	public String transactionHistory(Model model) {
+		model.addAttribute("title", "BCrypt: Transaction Histroy");
+		return "transaction-history";
 	}
 
 }

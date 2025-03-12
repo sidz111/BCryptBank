@@ -29,19 +29,24 @@
 						easier. Join us today and take the first step toward a smarter
 						banking experience.</p>
 					<div class="row">
-						<div class="col-md-4 pb-2">
+						<div class="col-md-4 pb-2" th:if="${user.role == 'ROLE_ADMIN'}">
 							<a class="nav-link active btn own-btn own-btn-hover p-2"
 								title="Click me to login" href="/create-acc-page"><i
-								class="fas fa-sign-in-alt"></i> Create New Acc</a>
+								class="fas fa-sign-in-alt"></i> Create Account</a>
 						</div>
 						<div class="col-md-4" th:if="${user.role == 'ROLE_ADMIN'}">
 							<a class="nav-link active  btn own-btn own-btn-hover p-2"
 								title="Click me to register" href="/register-user"><i
-								class="fas fa-user-plus"></i> Add New Acc</a>
+								class="fas fa-user-plus"></i> Add User</a>
 						</div>
-						<h2 th:text="${user.accountNo}"></h2>
-						<h2 th:text="${user.name}"></h2>
-						<h2 th:text="${user.role}"></h2>
+						<h3 th:if="${user.role=='ROLE_USER'}">Account No: <span th:text="${user.accountNo}"></span></h3>
+						<h3 th:if="${user.role=='ROLE_USER'}">Username: <span th:text="${user.name}"></span></h3>
+						<h3>Role: <span th:text="${user.role}"></span></h3>
+						<div class="col-md-4" th:if="${user.role == 'ROLE_USER'}">
+							<a class="nav-link active  btn own-btn own-btn-hover p-2"
+								title="Click me to register" href="/transaction-money">
+								<i class="bi bi-arrow-left-right"></i> Transfer Money</a>
+						</div>
 					</div>
 				</div>
 				<div class="col-md-6 ps-2">

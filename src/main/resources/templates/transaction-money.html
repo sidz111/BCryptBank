@@ -1,16 +1,32 @@
-<!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!Doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{header::Layout(~{::section})}">
 <head>
-	<meta charset="UTF-8" />
-	<title>transaction-money</title>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title th:text="${title}"></title>
 </head>
 <body>
-	<h1>transaction-money</h1>
-	
-	<form action="/send-money" method="post">
-	<input type="text" name="accountNumber" placeholder="Enter account No" required/>
-	<input type="text" name="balance" placeholder="Enter Ammount" required />
-	<button type="submit">Send Money</button>
-	</form>
+	<section class="pb-5 pt-5 mt-5 aboutbackground">
+		<div class="container bg-white mt-5 p-5 pt-4 mb-5 shadow p-3 mb-5 bg-body-tertiary rounded" style="width: 50%; border:1px solid black;">
+			<div class="text-center fs-1">
+				<i class="bi bi-cash-coin"></i>
+		    </div>
+		    <h1 class="text-center mb-4">Transaction Money</h1>
+		    <form action="/send-money" method="post" class="w-100 mx-auto">
+		        <div class="mb-4 input-group">
+		            <span class="input-group-text"><i class="bi bi-credit-card"></i></span>
+		            <input type="text" class="form-control" id="accountNumber" name="accountNumber" placeholder="Enter Account Number" required>
+		        </div>
+		        <div class="mb-4 input-group">
+		            <span class="input-group-text"><i class="bi bi-currency-dollar"></i></span>
+		            <input type="text" class="form-control" id="balance" name="balance" placeholder="Enter Amount" required>
+		        </div>
+		        <button type="submit" class="btn own-btn own-btn-hover w-100">
+		            <i class="bi bi-send"></i>  Send Money
+		        </button>
+		    </form>
+		</div>
+	</section>
 </body>
 </html>

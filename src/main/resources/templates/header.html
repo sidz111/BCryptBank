@@ -79,8 +79,15 @@
 				</li>
 				<li class="nav-item"><a class="nav-link primary-color"
 					href="/contact"><i class="fas fa-comment"></i> Contact Us</a></li>
+					
+				<li class="nav-item"><a class="nav-link primary-color" th:if="${user != null}"
+					href="/user-profile"><i class="bi bi-person-circle"></i> Profile</a></li>
+					
+				<li class="nav-item"><a class="nav-link primary-color" th:if="${user != null}"
+					href="/history"><i class="bi bi-clock-history"></i> History</a></li>
 				</ul>
-				<a class="btn own-btn own-btn-hover" href="/logout">Logout</a><!-- <i class="bi bi-door-closed-fill fs"></i> -->
+				
+				<a class="btn own-btn own-btn-hover" th:if="${user != null}" href="/logout"><i class="bi bi-door-closed-fill fs"></i>Logout</a>
 			</div>
 		</div>
 	</nav>

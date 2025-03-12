@@ -1,16 +1,41 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{header::Layout(~{::section})}">
 <head>
-	<meta charset="UTF-8" />
-	<title>Create New Acc</title>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title th:text="${title}"></title>
 </head>
 <body>
-	<h1>Create New Acc</h1>
-	
-	<form action="/create-acc" method="post">
-	<input type="text" name="accountType" placeholder="Account Type" required />
-	<input type="text" name="username" placeholder="UserName of User" required/>
-	<button type="submit">Create Account</button>
-	</form>
+	<section class="pb-5 pt-5 mt-5 aboutbackground">
+		<div class="container bg-white mt-5 pt-4 pb-5 shadow p-3 mb-5 bg-body-tertiary rounded" style="width: 50%; border:1px solid black;">
+			<div class="text-center fs-1">
+			    <i class="fa-solid own-solid fa-building-columns"></i>
+			</div>
+		    <h1 class="text-center">Open New Account</h1>
+		    <form action="/create-acc" method="post" class="w-100 mx-auto p-3">
+		        <div class="mb-3">
+				    <label for="accountType" class="form-label">Account Type</label>
+				    <div class="input-group">
+				        <span class="input-group-text cover" style="color: #000957;">
+				            <i class="bi bi-person-bounding-box"></i>
+				        </span>
+				        <input type="text" class="form-control" id="accountType" name="accountType" placeholder="Enter Account Type" required>
+				    </div>
+				</div>
+				
+				<div class="mb-3">
+				    <label for="username" class="form-label">Username</label>
+				    <div class="input-group">
+				        <span class="input-group-text cover" style="color: #000957;">
+				            <i class="bi bi-person-fill"></i>
+				        </span>
+				        <input type="text" class="form-control" id="username" name="username" placeholder="Enter Username" required>
+				    </div>
+				</div>
+		        <button type="submit" class="btn own-btn own-btn-hover w-100 mt-3"><i class="bi bi-person-plus-fill fs-5"></i> Create Account</button>
+		    </form>
+		</div>
+	</section>
 </body>
 </html>
