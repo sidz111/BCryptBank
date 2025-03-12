@@ -11,6 +11,9 @@ import java.util.Optional;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMailMessage;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -34,10 +37,15 @@ import com.bcrypt.service.SubscribersService;
 import com.bcrypt.service.TransactionService;
 import com.bcrypt.service.UserService;
 
+import jakarta.mail.MessagingException;
+import jakarta.mail.internet.MimeMessage;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class HomeController {
+	
+	@Autowired
+	JavaMailSender javaMailSender;
 
 	@Autowired
 	private ContactUsService contactUsService;
@@ -90,7 +98,7 @@ public class HomeController {
 			@RequestParam("password") String password, @RequestParam("email") String email,
 			@RequestParam("address") String address, @RequestParam("branch") String branch,
 			@RequestParam("adhar") Long adhar, @RequestParam("dateOfBirth") String dateOfBirth,
-			@RequestParam("profilePhoto") MultipartFile photo, Model model) throws IOException {
+			@RequestParam("profilePhoto") MultipartFile photo, Model model) throws IOException, MessagingException {
 		User u = new User();
 		u.setName(name);
 		u.setUsername(username);
@@ -125,6 +133,20 @@ public class HomeController {
 		u.setProfilePhoto(userImage);
 
 		userService.addUser(u);
+		MimeMessage mailMessage = javaMailSender.createMimeMessage();
+		MimeMessageHelper helper = new MimeMessageHelper(mailMessage, true);
+		helper.setFrom("sssurwade2212@gmail.com", "BCrypt Bank");
+		helper.setTo(email);
+		helper.setSubject("Welcome to BCrypt Bank");
+		
+		String emailContent = "<h1>Welcome to Our Bank</h1></br>"
+				+ "Welcome "
+				+ u.getName()
+				+ "<h1>Your Username is: " + u.getEmail()
+				+ "<h2> and password is: "+ password
+				;
+		helper.setText(emailContent, true);
+		javaMailSender.send(mailMessage);
 
 		return "redirect:/";
 	}
