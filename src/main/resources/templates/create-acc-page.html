@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<title>Create New Acc</title>
+</head>
+<body>
+	<h1>Create New Acc</h1>
+	
+	<form action="/create-acc" method="post">
+	<input type="text" name="accountType" placeholder="Account Type" required />
+	<input type="text" name="username" placeholder="UserName of User" required/>
+	<button type="submit">Create Account</button>
+	</form>
+</body>
+</html>
