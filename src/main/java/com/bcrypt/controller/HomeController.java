@@ -9,7 +9,6 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.Optional;
 import java.util.Random;
-import java.util.RandomAccess;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -47,11 +46,11 @@ public class HomeController {
 	private SubscribersService subscribersService;
 
 	@Autowired
-	UserService userService;
-
+	private UserService userService;
+	
 	@Autowired
-	UserRepository userRepository;
-
+	private UserRepository userRepository;
+	
 	@Autowired
 	PasswordEncoder passwordEncoder;
 
@@ -68,18 +67,21 @@ public class HomeController {
 			model.addAttribute("message", message);
 			session.removeAttribute("message");
 		}
+		model.addAttribute("title", "BCrypt: Home");
 		String userName = SecurityContextHolder.getContext().getAuthentication().getName();
 		model.addAttribute("user", userRepository.findByUsername(userName));
 		return "index.html";
 	}
 
 	@GetMapping("/login")
-	public String loginPage() {
-		return "login.html";
+	public String loginPage(Model model) {
+		model.addAttribute("title", "BCrypt: Login");
+		return "login";
 	}
 
 	@GetMapping("/register-user")
-	public String registerPage() {
+	public String registerPage(Model model) {
+		model.addAttribute("title", "BCrypt: Register");
 		return "register";
 	}
 
@@ -134,6 +136,7 @@ public class HomeController {
 			model.addAttribute("message", message);
 			session.removeAttribute("message");
 		}
+		model.addAttribute("title", "BCrypt: Contact");
 		model.addAttribute("contact", new ContactUs());
 		return "contact";
 	}

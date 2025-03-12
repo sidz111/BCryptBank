@@ -57,7 +57,8 @@ public class SecurityConfiguration {
 		.and()
 		.logout()
 		.logoutUrl("/logout")
-		.logoutSuccessUrl("/login").permitAll();
+		.logoutSuccessUrl("/login")
+		.invalidateHttpSession(true).permitAll();
 		
 		return httpSecurity.build();
 	}
